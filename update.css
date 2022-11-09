@@ -1,0 +1,9 @@
+input {
+  position: absolute;
+  display: inline-flexbox;
+  left: 14%;
+}
+.delete {
+  position: relative;
+  top: 10px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Details</title>
+    <script>
+        var employee = JSON.parse(sessionStorage.getItem("employee"));
+        console.log(employee);
+        function deleteData() {
+            let name1 = document.getElementById("name").value;
+            if (employee.length == 0) {
+                alert("No record found");
+            }
+            var exist = false;
+            for (let i = 0; i < employee.length; i++) {
+                if (employee[i].name == name1) {
+                    employee.splice(i, 1);
+                    alert("deleted");
+                    sessionStorage.setItem('employee', JSON.stringify(employee));
+                    exist = true;
+                }
+            }
+            if (!exist) {
+                alert("No record found");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Print Employee</h1>
+    <label for="name"> Employee Name </label>
+    <input id="name" type="text">
+    <button type="button" onclick="deleteData()">Delete</button>
+    <div class="data">
+        <p id="name2"></p>
+    </div>
+
+</body>
+
+</html>
